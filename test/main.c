@@ -15,6 +15,11 @@ int main (void) {
   printf("Captured node %p\n", capture_b);
   mm_dealloc(capture_b);
   mm_print();
+  mm_collect();
+  mm_print();
+  int* c = (int*) mm_alloc(sizeof(int), NULL, NULL);
+  *c = 3;
+  mm_print();
   atexit(mm_print);
   atexit(mm_collect);
 }
