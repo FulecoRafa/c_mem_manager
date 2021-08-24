@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 typedef struct _mm_tracker_node_t mm_tracker_node_t;
+typedef struct _mm_tracker_t mm_tracker_t;
 
 /**
  * @brief Allocates space of size `s` while keeping track that it
@@ -17,7 +18,7 @@ typedef struct _mm_tracker_node_t mm_tracker_node_t;
  * @param capture_node node kept track of
  * @return void* pointer to allocated space
  */
-void* mm_alloc(size_t s, void (*dealloc_func)(void*), mm_tracker_node_t* capture_node);
+void* mm_alloc(size_t s, void (*dealloc_func)(void*), mm_tracker_node_t** capture_node);
 
 /**
  * @brief Takes a reference to a node kept track of
@@ -33,5 +34,11 @@ void mm_dealloc(mm_tracker_node_t* node);
  *  it clear all data as soon as the program ends
  */
 void mm_collect(void);
+
+/**
+ * @brief Prints tracker
+ *
+ */
+void mm_print(void);
 
 #endif // MEM_MAN
