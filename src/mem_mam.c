@@ -35,11 +35,9 @@ mm_tracker_node_t* add_node(void* allocated_data, void* dealloc_func) {
 
 void mm_dealloc(mm_tracker_node_t* node) {
   if (node == MM_Tracker.head) {
-    printf("Is head\n");
     MM_Tracker.head = node->right;
     MM_Tracker.head->left = NULL;
   } else if (node == MM_Tracker.tail) {
-    printf("Is tail\n");
     MM_Tracker.tail = node->left;
     MM_Tracker.tail->right = NULL;
   } else {
@@ -87,7 +85,6 @@ void* mm_alloc(size_t s, void (*dealloc_func)(void*), mm_tracker_node_t** captur
   void* allocated_data = malloc(s);
   mm_tracker_node_t* node = add_node(allocated_data, dealloc_func);
   // if (capture_node != NULL)
-  printf("Created node %p\n", node);
   if(capture_node)
     *capture_node = node;
   return allocated_data;
