@@ -1,6 +1,24 @@
 # C_MEM_MANAGER
 A simple memory manager for C
 
+## Instalation
+1. Clone repository in or pc
+```bash
+git clone https://github.com/FulecoRafa/c_mem_manager.git
+```
+
+2. Install library
+```bash
+sudo make install
+```
+
+3. Compile your project with the `-lmem_mam` flag
+```bash
+gcc my_program.c -lmem_mam -o my_program
+```
+
+4. Profit!
+
 ## Usage
 C_MEM_MANAGER uses functions that 'overload' the usual memory alocation functions.
 
