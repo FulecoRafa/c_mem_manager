@@ -4,7 +4,7 @@
       "type": "shell",
       "label": "Make",
       "command": "make",
-      "args": ["test"]
+      "args": ["test.multithread"]
     },
     {
       "type": "cppbuild",

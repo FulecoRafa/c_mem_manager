@@ -13,16 +13,20 @@ gen.dynamic: build.dynamic
 	gcc -shared -o target/lib/libmem_mam.so target/lib/mem_mam.o
 
 test: debug
-	gcc -g -fsanitize=address test/main.c target/debug/mem_mam.o -o target/test/test.out
-
+	gcc -g -fsanitize=address test/main.c target/debug/mem_mam.o -o target/test/test.out -lpthread
 test.run: test
 	./target/test/test.out
 
 test.dynamic:
-	gcc test/main.c -lmem_mam -o target/test/dynamic.out
-
+	gcc test/main.c -lmem_mam -o target/test/dynamic.out -lpthread
 test.dynamic.run: test.dynamic
 	./target/test/dynamic.out
+
+test.multithread: debug
+	gcc -g -fsanitize=address test/multithread.c target/debug/mem_mam.o -o target/test/multithread.out -lpthread
+test.multithread.run: test.multithread
+	./target/test/multithread.out
+
 
 build: gen_folders
 	gcc -c src/mem_mam.c -o target/lib/mem_mam.o
