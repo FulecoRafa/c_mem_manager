@@ -6,6 +6,9 @@
 typedef struct _mm_tracker_node_t mm_tracker_node_t;
 typedef struct _mm_tracker_t mm_tracker_t;
 
+void mm_init();
+void mm_stop();
+
 /**
  * @brief Allocates space of size `s` while keeping track that it
  *  exists for later clearing. To clear the space, it needs
